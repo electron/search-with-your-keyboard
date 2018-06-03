@@ -1,18 +1,17 @@
 const keycode = require('keycode')
 const assert = require('assert')
 
-module.exports = function searchWithYourKeyboard (inputSelector, hitsContainerSelector) {
+module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
   assert(typeof inputSelector === 'string', 'inputSelector should be a string')
-  assert(typeof hitsContainerSelector === 'string', 'hitsContainerSelector should be a string')
+  assert(typeof hitsSelector === 'string', 'hitsSelector should be a string')
 
   let activeIndex = 0
-  const hitsSelector = hitsContainerSelector + ' > *'
   const targetEventCodes = ['up', 'down', 'enter', '/', 'esc']
   const input = document.querySelector(inputSelector)
-  const hits = document.querySelector(hitsContainerSelector)
+  const hits = document.querySelector(hitsSelector)
 
-  assert(input, `no element found for inputSelector: ${inputSelector}`)
-  assert(hits, `no element found for hitsContainerSelector: ${hitsContainerSelector}`)
+  // assert(input, `no element found for inputSelector: ${inputSelector}`)
+  // assert(hits, `no element found for hitsSelector: ${hitsSelector}`)
 
   // deactivate any active hit when search input is focused by a mouse click
   input.addEventListener('focus', () => {
