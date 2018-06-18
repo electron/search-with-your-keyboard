@@ -27,7 +27,7 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
     }
   })
 
-  document.addEventListener('keyup', event => {
+  document.addEventListener('keydown', event => {
     // bail early if key code is not one that we're explicity expecting
     if (!event || !event.code || !targetEventCodes.includes(keycode(event))) return
 
@@ -52,13 +52,20 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
 
       case 'up':
         // search input is the zero index (don't go beyond it)
-        if (activeIndex > 0) activeIndex--
+        if (activeIndex > 0) {
+          activeIndex--
+          event.preventDefault() // prevent window scrolling
+        }
         updateActiveHit()
         break
 
       case 'down':
         // last hit is the last index (don't go beyond it)
-        if (activeIndex < hits.length) activeIndex++
+        if (activeIndex < hits.length) {
+          activeIndex++
+          event.preventDefault() // prevent window scrolling
+
+        }
         updateActiveHit()
         break
 
