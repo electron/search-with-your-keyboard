@@ -10,6 +10,7 @@
     "budo": "^11.2.2",
     "cypress": "^3.0.0",
     "nanohtml": "^1.2.4",
+    "standard": "^11.0.1",
     "wait-on": "^2.1.0"
   },
   "scripts": {
