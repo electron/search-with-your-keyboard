@@ -8,10 +8,6 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
   let activeIndex = 0
   const targetEventCodes = ['up', 'down', 'enter', '/', 'esc']
   const input = document.querySelector(inputSelector)
-  const hits = document.querySelector(hitsSelector)
-
-  // assert(input, `no element found for inputSelector: ${inputSelector}`)
-  // assert(hits, `no element found for hitsSelector: ${hitsSelector}`)
 
   // deactivate any active hit when search input is focused by a mouse click
   input.addEventListener('focus', () => {
@@ -20,7 +16,7 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
   })
 
   // deactivate any active hit when typing in search box
-  input.addEventListener('keydown', () => {
+  input.addEventListener('keydown', event => {
     if (!targetEventCodes.includes(event.code)) {
       activeIndex = 0
       deactivateHits()
@@ -33,20 +29,18 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
 
     const hits = Array.from(document.querySelectorAll(hitsSelector))
 
-    switch(keycode(event)) {
+    switch (keycode(event)) {
       case 'esc':
         input.focus()
         input.select()
         input.value = ''
         return
-        break
 
       case '/':
         // when the input is focused, `/` should have no special behavior
         if (event.target !== input) {
           input.focus()
           input.select()
-          return
         }
         break
 
@@ -64,7 +58,6 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
         if (activeIndex < hits.length) {
           activeIndex++
           event.preventDefault() // prevent window scrolling
-
         }
         updateActiveHit()
         break
@@ -81,9 +74,8 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
           window.location = href
         }
         break
-    }  
+    }
   })
-
 
   function deactivateHits () {
     Array.from(document.querySelectorAll(hitsSelector)).forEach(hit => {
@@ -91,7 +83,7 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
     })
   }
 
-  function updateActiveHit() {
+  function updateActiveHit () {
     deactivateHits()
 
     if (activeIndex === 0) {
