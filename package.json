@@ -26,5 +26,8 @@
   ],
   "dependencies": {
     "keycode": "^2.2.0"
+  },
+  "standard": {
+    "env": ["jest"]
   }
 }
