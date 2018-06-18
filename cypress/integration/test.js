@@ -5,7 +5,7 @@ context('Actions', () => {
 
   it('.type() - type into a DOM element', () => {
     // https://on.cypress.io/type
-    
+
     cy.get('#search').type('cool').should('have.value', 'cool')
 
     cy.get('#hits > *').first()
