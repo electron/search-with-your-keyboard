@@ -26,6 +26,15 @@ const $main = html`
     <div class="hit"><a href="http://en.wikipedia.org/wiki/carrots">carrots</a></div>
     <div class="hit"><a href="http://en.wikipedia.org/wiki/carrots">carrots</a></div>
     <div class="hit"><a href="http://en.wikipedia.org/wiki/carrots">carrots</a></div>
+    <div class="hit"><a href="http://en.wikipedia.org/wiki/carrots">carrots</a></div>
+    <div class="hit"><a href="http://en.wikipedia.org/wiki/carrots">carrots</a></div>
+    <div class="hit"><a href="http://en.wikipedia.org/wiki/carrots">carrots</a></div>
+    <div class="hit"><a href="http://en.wikipedia.org/wiki/carrots">carrots</a></div>
+    <div class="hit"><a href="http://en.wikipedia.org/wiki/carrots">carrots</a></div>
+    <div class="hit"><a href="http://en.wikipedia.org/wiki/carrots">carrots</a></div>
+    <div class="hit"><a href="http://en.wikipedia.org/wiki/carrots">carrots</a></div>
+    <div class="hit"><a href="http://en.wikipedia.org/wiki/carrots">carrots</a></div>
+    <div class="hit"><a href="http://en.wikipedia.org/wiki/carrots">carrots</a></div>
   </div>
 </main>
 `
