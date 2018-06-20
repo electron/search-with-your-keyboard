@@ -28,6 +28,7 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
     if (!event || !event.code || !targetEventCodes.includes(keycode(event))) return
 
     const hits = Array.from(document.querySelectorAll(hitsSelector))
+    const queryExists = Boolean(input && input.value && input.value.length > 0)
 
     switch (keycode(event)) {
       case 'esc':
@@ -46,6 +47,8 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
         break
 
       case 'up':
+        if (!queryExists) return
+
         // search input is the zero index (don't go beyond it)
         if (activeIndex > 0) {
           activeIndex--
@@ -55,6 +58,8 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
         break
 
       case 'down':
+        if (!queryExists) return
+
         // last hit is the last index (don't go beyond it)
         if (activeIndex < hits.length) {
           activeIndex++
