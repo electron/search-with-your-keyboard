@@ -41,6 +41,7 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
         if (event.target !== input) {
           input.focus()
           input.select()
+          event.preventDefault() // prevent slash from being typed into input
         }
         break
 
