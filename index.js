@@ -27,7 +27,7 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
     // bail early if key code is not one that we're explicity expecting
     if (!event || !event.code || !targetEventCodes.includes(keycode(event))) return
 
-    const hits = Array.from(document.querySelectorAll(hitsSelector))
+    const hits = getCurrentHits()
     const queryExists = Boolean(input && input.value && input.value.length > 0)
 
     switch (keycode(event)) {
@@ -89,6 +89,12 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
     })
   }
 
+  function getCurrentHits () {
+    return Array.from(document.querySelectorAll(hitsSelector)).filter(el => {
+      return el.style.display !== 'none' && el.offsetParent !== null // element is visible
+    })
+  }
+
   function updateActiveHit () {
     deactivateHits()
 
@@ -96,7 +102,7 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
       input.focus()
       input.select()
     } else {
-      const hits = Array.from(document.querySelectorAll(hitsSelector))
+      const hits = getCurrentHits()
       hits[activeIndex - 1].classList.add('active')
       input.blur()
     }

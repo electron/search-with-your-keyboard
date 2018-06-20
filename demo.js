@@ -15,7 +15,7 @@ const $main = html`
 
   <div id="hits">
     <div class="hit"><a href="http://en.wikipedia.org/wiki/apples">apples</a></div>
-    <div class="hit"><a href="http://en.wikipedia.org/wiki/bananas">bananas</a></div>
+    <div class="hit" style="display:none"><a href="http://en.wikipedia.org/wiki/bananas">bananas</a></div>
     <div class="hit"><a href="http://en.wikipedia.org/wiki/carrots">carrots</a></div>
     <div class="hit"><a href="http://en.wikipedia.org/wiki/carrots">carrots</a></div>
     <div class="hit"><a href="http://en.wikipedia.org/wiki/carrots">carrots</a></div>
