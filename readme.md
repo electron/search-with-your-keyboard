@@ -16,7 +16,7 @@ Key | Action
 <kbd>down</kbd> | Adds an `active` class to the next (visible) hit. Only applies when the search input contains a value.
 <kbd>up</kbd> | Adds an `active` class to the previous (visible) hit. If already on the first search hit, the search input is focused. Only applies when the search input contains a value.
 <kbd>enter</kbd> | Sets `window.location` to the `href` of the first `<a>` tag in the current `.active` hit, if present.
-<kbd>cmdOrCtrl+Enter</kbd> | Opens the window in new tab and focus it.
+<kbd>cmdOrCtrl</kbd>+<kbd>Enter</kbd> | Opens the window in new tab and focus it.
 
 ## Installation
 
