@@ -30,6 +30,26 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
     const hits = getCurrentHits()
     const queryExists = Boolean(input && input.value && input.value.length > 0)
 
+    if (event.ctrlKey && event.keyCode === 13 && activeIndex > 0) {
+      const hit = hits[activeIndex - 1]
+      if (!hit) {
+        return
+      }
+      const link = hit.querySelector('a')
+      if (!link) {
+        return
+      }
+      const href = link.getAttribute('href')
+      if (!href) {
+        return
+      }
+      window.open(href, '_blank')
+      // NOTE: The `window.focus()` method not work correctly
+      // on some browser or OS. It don't focus window in
+      // Chrome browser.
+      window.focus()
+    }
+
     switch (keycode(event)) {
       case 'esc':
         input.focus()
@@ -69,8 +89,11 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
         break
 
       case 'enter':
-        // look for a link in the given hit, then visit it
-        if (activeIndex > 0) {
+        // If Ctrl key is pressed, we block using this case.
+        if (event.ctrlKey) {
+          break
+        } else if (activeIndex > 0) {
+          // look for a link in the given hit, then visit it
           const hit = hits[activeIndex - 1]
           if (!hit) return
           const link = hit.querySelector('a')

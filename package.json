@@ -29,7 +29,11 @@
     "keycode": "^2.2.0"
   },
   "standard": {
-    "env": ["jest"],
-    "ignore": ["/cypress"]
+    "env": [
+      "jest"
+    ],
+    "ignore": [
+      "/cypress"
+    ]
   }
 }

@@ -1,10 +1,10 @@
-# search-with-your-keyboard 
+# search-with-your-keyboard
 
 > Add keyboard navigation to your existing client-side search interface.
 
 This module is designed to make [Algolia InstantSearch] results (aka "hits") navigable
-with a keyboard. It's not Algolia-specific though, and should work with any 
-search setup so long as it includes a search input and a list of 
+with a keyboard. It's not Algolia-specific though, and should work with any
+search setup so long as it includes a search input and a list of
 client-side-updated results.
 
 ## Behavior
@@ -16,6 +16,7 @@ Key | Action
 <kbd>down</kbd> | Adds an `active` class to the next (visible) hit. Only applies when the search input contains a value.
 <kbd>up</kbd> | Adds an `active` class to the previous (visible) hit. If already on the first search hit, the search input is focused. Only applies when the search input contains a value.
 <kbd>enter</kbd> | Sets `window.location` to the `href` of the first `<a>` tag in the current `.active` hit, if present.
+<kbd>cmdOrCtrl+Enter</kbd> | Opens the window in new tab and focus it.
 
 ## Installation
 
@@ -25,7 +26,7 @@ npm install search-with-your-keyboard
 
 ## Usage
 
-The module exports a single function that expects two CSS selector strings as 
+The module exports a single function that expects two CSS selector strings as
 arguments: one for the input element, one for the set of hit elements.
 
 ```js
