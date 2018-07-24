@@ -77,7 +77,18 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
           if (!link) return
           const href = link.getAttribute('href')
           if (!href) return
-          window.location = href
+
+          // If `ctrlKey` is pressed, opens page in new window.
+          // In all other cases, we open the page in the same window.
+          if (event.ctrlKey) {
+            window.open(href, '_blank')
+            // NOTE: The `window.focus()` method not work correctly
+            // on some browser or OS. It don't focus window in
+            // Chrome browser.
+            window.focus()
+          } else {
+            window.location = href
+          }
         }
         break
     }
