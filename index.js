@@ -30,6 +30,8 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
     const hits = getCurrentHits()
     const queryExists = Boolean(input && input.value && input.value.length > 0)
 
+    if (event.key === '?') return false
+
     switch (keycode(event)) {
       case 'esc':
         input.focus()
