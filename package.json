@@ -1,6 +1,6 @@
 {
   "name": "search-with-your-keyboard",
-  "version": "0.0.0-development",
+  "version": "1.1.0",
   "description": "Add keyboard navigation to your existing client-side search interface",
   "main": "src.js",
   "repository": "https://github.com/electron/search-with-your-keyboard",
