@@ -32,7 +32,7 @@ module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
 
     // If we on `input` element we skip all events, if not
     // we accept all events described bottom.
-    if (event.target.tagName === 'INPUT') return false
+    if (['INPUT', 'TEXTAREA', 'SELECT'].includes(event.target.tagName)) return false
 
     switch (keycode(event)) {
       case 'esc':
