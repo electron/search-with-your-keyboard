@@ -1,9 +1,12 @@
 const keycode = require('keycode')
-const assert = require('assert')
 
 module.exports = function searchWithYourKeyboard (inputSelector, hitsSelector) {
-  assert(typeof inputSelector === 'string', 'inputSelector should be a string')
-  assert(typeof hitsSelector === 'string', 'hitsSelector should be a string')
+  if (typeof inputSelector !== 'string') {
+    throw new TypeError('inputSelector should be a string')
+  }
+  if (typeof hitsSelector !== 'string') {
+    throw new TypeError('hitsSelector should be a string')
+  }
 
   let activeIndex = 0
   const targetEventCodes = ['up', 'down', 'enter', '/', 'esc']
