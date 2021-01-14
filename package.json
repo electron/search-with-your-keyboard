@@ -13,7 +13,7 @@
     "standard": "^11.0.1",
     "wait-on": "^2.1.0",
     "travis-deploy-once": "^5.0.0",
-    "semantic-release": "^15.5.5"
+    "semantic-release": "^17.2.3"
   },
   "scripts": {
     "start": "budo demo.js --live --no-debug --open --css demo.css",
